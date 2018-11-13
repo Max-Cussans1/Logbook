@@ -2,7 +2,7 @@
 #include "Entry.h"
 
 
-Entry::Entry(int jobNumber,std::string description,double timeSpent,int dayNumber): jobNumber(jobNumber), description(description), timeSpent(timeSpent), dayNumber(dayNumber)
+Entry::Entry(int dayNumber, std::string description) : dayNumber(dayNumber), description(description)
 {
 }
 
