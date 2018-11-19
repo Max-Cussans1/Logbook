@@ -11,6 +11,7 @@ private:
 public:
 	Entry(int dayNumber, std::vector<std::string> description);
 	const int getdayNumber() { return dayNumber; };
+	const std::vector<std::string> getDescription() { return description; };
 	~Entry();
 };
 
