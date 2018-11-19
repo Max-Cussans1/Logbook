@@ -12,6 +12,7 @@ public:
 	double time;
 
 	Job(int jobNumber, std::vector<std::string> tasks, double time);
+	const int getjobNumber() { return jobNumber; };
 	~Job();
 };
 
