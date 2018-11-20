@@ -4,12 +4,10 @@
 
 class Job
 {
-private:
-	const int jobNumber;
-
 public:
 	std::vector<std::string> tasks;
 	double time;
+	const int jobNumber;
 
 	Job(int jobNumber, std::vector<std::string> tasks, double time);
 	const int getjobNumber() { return jobNumber; };
