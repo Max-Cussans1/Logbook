@@ -232,7 +232,7 @@ Job Job::Split(std::string JOB_TO_SPLIT, int desiredJobNumber)
 		{
 			for (int k = j; k < tasks.size() - 1; k++)
 			{
-				tasks[j] = tasks[j + 1];
+				tasks[k] = tasks[k + 1];
 			}
 			tasks.pop_back();
 			if (j == tasks.size())
@@ -457,6 +457,8 @@ Job Job::Split(std::string JOB_TO_SPLIT, std::string JOB_TO_SPLIT_2, int desired
 			}
 
 			splitJob.time += jobTime;
+			time -= jobTime;
+
 			splitJob.tasks.push_back(tasks[i]);
 			//delete the entry we have split off
 			tasks[i].erase();
@@ -466,11 +468,11 @@ Job Job::Split(std::string JOB_TO_SPLIT, std::string JOB_TO_SPLIT_2, int desired
 	}
 	for (int j = 0; j < tasks.size(); j++)
 	{
-		if (tasks[j] == "")
+		while (tasks[j] == "")
 		{
 			for (int k = j; k < tasks.size() - 1; k++)
 			{
-				tasks[j] = tasks[j + 1];
+				tasks[k] = tasks[k + 1];
 			}
 			tasks.pop_back();
 			if (j == tasks.size())
