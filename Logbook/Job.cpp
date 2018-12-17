@@ -220,15 +220,26 @@ Job Job::Split(std::string JOB_TO_SPLIT, int desiredJobNumber)
 			splitJob.time += jobTime;
 			splitJob.tasks.push_back(tasks[i]);
 			//delete the entry we have split off
+			tasks[i].erase();
+			
+		}
 
-			for (int j = i; j < tasks.size() - 1; j++)
+	}
+
+	for (int j = 0; j < tasks.size(); j++)
+	{
+		if (tasks[j] == "")
+		{
+			for (int k = j; k < tasks.size() - 1; k++)
 			{
 				tasks[j] = tasks[j + 1];
 			}
 			tasks.pop_back();
-			
+			if (j == tasks.size())
+			{
+				tasks.pop_back();
+			}
 		}
-
 	}
 
 	return splitJob;
@@ -239,7 +250,7 @@ Job Job::Split(std::string JOB_TO_SPLIT, std::string JOB_TO_SPLIT_2, int desired
 	std::vector<std::string> desiredTasks;
 	double newTime = 0;
 	Job splitJob = Job(desiredJobNumber, desiredTasks, newTime);
-
+	
 
 	for (int i = 0; i < tasks.size(); i++)
 	{
@@ -448,15 +459,25 @@ Job Job::Split(std::string JOB_TO_SPLIT, std::string JOB_TO_SPLIT_2, int desired
 			splitJob.time += jobTime;
 			splitJob.tasks.push_back(tasks[i]);
 			//delete the entry we have split off
-			
-			for (int j = i; j < tasks.size() - 1; j++)
+			tasks[i].erase();
+
+		}
+
+	}
+	for (int j = 0; j < tasks.size(); j++)
+	{
+		if (tasks[j] == "")
+		{
+			for (int k = j; k < tasks.size() - 1; k++)
 			{
 				tasks[j] = tasks[j + 1];
 			}
 			tasks.pop_back();
-
+			if (j == tasks.size())
+			{
+				tasks.pop_back();
+			}
 		}
-
 	}
 
 	return splitJob;
